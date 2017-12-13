@@ -1,6 +1,6 @@
 
 ONLY_LISTEN = [
-  "github"
+  "G8CGB7VFB"
 ]
 
 IGNORE_ROOMS = [

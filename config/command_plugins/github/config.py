@@ -30,6 +30,12 @@ GITHUB_URL = "https://api.github.com/"
 
 # You can use this to add/replace fields from the command_plugins dictionary:
 USER_COMMAND_DICT = {
+    "!AddUserToTeam": {
+        "enabled": False
+    },
+    "!DeleteRepo": {
+        "enabled": False
+    }
     # This is an example for enabling Duo 2FA support for the "!SetDefaultBranch" command:
     # "!SetDefaultBranch": {
         # "auth": {

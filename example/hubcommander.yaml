@@ -1,0 +1,36 @@
+# Kubernetes manifest
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hubcommander
+  labels:
+    name: hubcommander
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hubcommander
+  namespace: hubcommander
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hubcommander
+    spec:
+      containers:
+        - image: quay.io/toyotaconnected/hubcommander:latest
+          imagePullPolicy: Always
+          name: hubcommander
+          env:
+            - name: SLACK_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hubcommander-secret
+                  key: slack_token
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hubcommander-secret
+                  key: github_token
